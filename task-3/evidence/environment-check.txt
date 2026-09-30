@@ -1,0 +1,13 @@
+Environment check performed on 2026-09-30 (Asia/Calcutta).
+
+Available:
+- git version 2.54.0.windows.1
+- gh version 2.95.0
+- Docker version 29.5.3
+
+Unavailable on PATH:
+- java
+- mvn
+- ansible
+
+No Maven build was run because Java and Maven are not installed/configured in this environment.
