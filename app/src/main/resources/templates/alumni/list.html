@@ -1,0 +1,7 @@
+<!doctype html><html xmlns:th="http://www.thymeleaf.org"><head><title>Alumni directory</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body><nav><a href="/alumni">Alumni</a> <a href="/students">Students</a> <a href="/requests">Requests</a> <a href="/">Dashboard</a></nav>
+<main><h1>Alumni directory</h1><a class="button" href="/alumni/new">Add alumnus</a>
+<form method="get"><label>Search expertise or name <input name="query" th:value="${query}"></label><button>Search</button></form>
+<table><thead><tr><th>Name</th><th>Email</th><th>Company</th><th>Expertise</th><th>Year</th><th>Action</th></tr></thead>
+<tbody><tr th:each="person : ${alumni}"><td th:text="${person.name}"></td><td th:text="${person.email}"></td><td th:text="${person.company}"></td><td th:text="${person.expertise}"></td><td th:text="${person.graduationYear}"></td><td><a th:href="@{/alumni/{id}/edit(id=${person.id})}">Edit</a></td></tr></tbody></table>
+</main></body></html>
