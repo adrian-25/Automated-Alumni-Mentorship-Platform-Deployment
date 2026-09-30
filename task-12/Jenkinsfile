@@ -1,0 +1,27 @@
+pipeline {
+  agent any
+  parameters { booleanParam(name: 'PUSH_IMAGE', defaultValue: false, description: 'Push only when Docker Hub credentials are configured.') }
+  environment {
+    CONTAINER_NAME = 'alumni-mentorship'
+  }
+  stages {
+    stage('Checkout') { steps { checkout scm; script { env.GIT_COMMIT = sh(script: 'git rev-parse HEAD', returnStdout: true).trim(); env.IMAGE_TAG = "${env.BUILD_NUMBER}-${env.GIT_COMMIT.take(7)}"; env.IMAGE_REPOSITORY = env.DOCKERHUB_REPOSITORY ?: 'replace-with-your-dockerhub-user/alumni-mentorship'; env.HOST_PORT = env.HOST_PORT ?: '8081' } } }
+    stage('Unit quality gate') { steps { dir('app') { sh 'mvn -B clean test' } } }
+    stage('Browser quality gate') { when { expression { env.RUN_SELENIUM == 'true' } } steps { dir('app') { sh 'RUN_SELENIUM=true mvn -B test' } } }
+    stage('Build image') { steps { sh 'docker build -f task-11/Dockerfile -t $IMAGE_REPOSITORY:$IMAGE_TAG -t $IMAGE_REPOSITORY:latest .' } }
+    stage('Publish image') {
+      when { expression { params.PUSH_IMAGE } }
+      steps { withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_TOKEN')]) { sh 'echo "$DOCKER_TOKEN" | docker login -u "$DOCKER_USER" --password-stdin; docker push $IMAGE_REPOSITORY:$IMAGE_TAG; docker push $IMAGE_REPOSITORY:latest; docker logout' } }
+    }
+    stage('Deploy fresh container') {
+      steps { sh '''#!/usr/bin/env bash
+        set -euo pipefail
+        docker rm -f "$CONTAINER_NAME" 2>/dev/null || true
+        docker run -d --name "$CONTAINER_NAME" --restart unless-stopped -p "$HOST_PORT:8080" "$IMAGE_REPOSITORY:$IMAGE_TAG"
+        for attempt in {1..20}; do curl -fsS "http://localhost:$HOST_PORT/alumni-mentorship/api/health" && exit 0; sleep 3; done
+        docker logs "$CONTAINER_NAME"; exit 1
+      ''' }
+    }
+  }
+  post { always { junit allowEmptyResults: false, testResults: 'app/target/surefire-reports/*.xml'; archiveArtifacts allowEmptyArchive: true, artifacts: 'app/target/selenium-screenshots/*.png' } }
+}

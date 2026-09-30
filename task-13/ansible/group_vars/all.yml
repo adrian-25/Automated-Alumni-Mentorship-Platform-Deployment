@@ -1,0 +1,7 @@
+app_image: "{{ lookup('env', 'APP_IMAGE') | default('replace-with-your-dockerhub-user/alumni-mentorship:latest', true) }}"
+app_container_name: alumni-mentorship
+app_host_port: "{{ lookup('env', 'APP_HOST_PORT') | default('8081', true) }}"
+app_container_port: "8080"
+app_data_dir: /opt/alumni-mentorship
+app_env_file: /opt/alumni-mentorship/alumni-mentorship.env
+app_user: mentorship

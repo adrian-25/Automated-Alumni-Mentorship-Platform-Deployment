@@ -1,0 +1,77 @@
+---
+- name: Configure Automated Alumni Mentorship Platform target
+  hosts: mentorship
+  become: true
+  gather_facts: true
+  vars_files:
+    - group_vars/all.yml
+  tasks:
+    - name: Install Docker prerequisites
+      ansible.builtin.apt:
+        name: [ca-certificates, curl, gnupg, docker.io]
+        state: present
+        update_cache: true
+
+    - name: Ensure application service account exists
+      ansible.builtin.user:
+        name: "{{ app_user }}"
+        system: true
+        create_home: false
+        groups: docker
+        append: true
+
+    - name: Ensure application directory exists
+      ansible.builtin.file:
+        path: "{{ app_data_dir }}"
+        state: directory
+        owner: "{{ app_user }}"
+        group: "{{ app_user }}"
+        mode: '0750'
+
+    - name: Write non-secret container configuration
+      ansible.builtin.copy:
+        dest: "{{ app_env_file }}"
+        owner: root
+        group: "{{ app_user }}"
+        mode: '0640'
+        content: |
+          APP_HOST_PORT={{ app_host_port }}
+          APP_IMAGE={{ app_image }}
+
+    - name: Ensure Docker service is enabled and started
+      ansible.builtin.service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Pull selected application image
+      community.docker.docker_image:
+        name: "{{ app_image }}"
+        source: pull
+        force_source: false
+
+    - name: Run the application container
+      community.docker.docker_container:
+        name: "{{ app_container_name }}"
+        image: "{{ app_image }}"
+        state: started
+        restart_policy: unless-stopped
+        published_ports:
+          - "{{ app_host_port }}:{{ app_container_port }}"
+        env_file: "{{ app_env_file }}"
+        comparisons:
+          image: strict
+
+    - name: Wait for application health endpoint
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:{{ app_host_port }}/alumni-mentorship/api/health"
+        status_code: 200
+        return_content: true
+      register: health
+      retries: 20
+      delay: 3
+      until: health.status == 200 and health.json.status == 'UP'
+
+    - name: Report health status
+      ansible.builtin.debug:
+        var: health.json
