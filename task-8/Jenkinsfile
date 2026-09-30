@@ -1,0 +1,26 @@
+pipeline {
+  agent any
+  parameters {
+    choice(name: 'DEPLOY_MODE', choices: ['tomcat', 'skip'], description: 'Deploy WAR to the configured Tomcat directory or package only.')
+    string(name: 'TOMCAT_WEBAPPS', defaultValue: '/opt/tomcat/webapps', description: 'Absolute Tomcat webapps directory on the Jenkins agent.')
+  }
+  environment {
+    APP_NAME = 'alumni-mentorship'
+  }
+  stages {
+    stage('Checkout') { steps { checkout scm } }
+    stage('Build and test') { steps { dir('app') { sh 'mvn -B clean verify' } } }
+    stage('Package') { steps { archiveArtifacts artifacts: 'app/target/*.war', fingerprint: true } }
+    stage('Deploy to Tomcat') {
+      when { expression { params.DEPLOY_MODE == 'tomcat' } }
+      steps {
+        sh '''#!/usr/bin/env bash
+          set -euo pipefail
+          test -d "$TOMCAT_WEBAPPS"
+          install -m 0644 app/target/${APP_NAME}.war "$TOMCAT_WEBAPPS/${APP_NAME}.war"
+        '''
+      }
+    }
+  }
+  post { always { junit allowEmptyResults: false, testResults: 'app/target/surefire-reports/*.xml' } }
+}
