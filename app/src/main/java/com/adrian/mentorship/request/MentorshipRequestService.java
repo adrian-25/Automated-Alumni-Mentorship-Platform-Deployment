@@ -18,6 +18,6 @@ public class MentorshipRequestService {
     }
     boolean isAllowed(RequestStatus current, RequestStatus target, UserRole role) {
         return current == RequestStatus.REQUESTED && role == UserRole.ALUMNI && EnumSet.of(RequestStatus.ACCEPTED, RequestStatus.REJECTED).contains(target)
-                || current == RequestStatus.ACCEPTED && role == UserRole.ALUMNI && target == RequestStatus.COMPLETED;
+                || current == RequestStatus.ACCEPTED && role == UserRole.ADMIN && target == RequestStatus.COMPLETED;
     }
 }
