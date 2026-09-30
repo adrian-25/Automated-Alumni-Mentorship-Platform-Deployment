@@ -1,0 +1,6 @@
+<!doctype html><html xmlns:th="http://www.thymeleaf.org"><head><title>Alumnus</title><link rel="stylesheet" th:href="@{/css/app.css}"></head>
+<body><main><h1 th:text="${alumnus.id == null ? 'Add alumnus' : 'Edit alumnus'}"></h1><form th:action="@{/alumni}" th:object="${alumnus}" method="post">
+<input type="hidden" th:field="*{id}"><label>Name <input th:field="*{name}"></label><small th:errors="*{name}"></small>
+<label>Email <input th:field="*{email}"></label><small th:errors="*{email}"></small><label>Company <input th:field="*{company}"></label><small th:errors="*{company}"></small>
+<label>Expertise <input th:field="*{expertise}"></label><small th:errors="*{expertise}"></small><label>Graduation year <input type="number" th:field="*{graduationYear}"></label><small th:errors="*{graduationYear}"></small>
+<button>Save</button> <a href="/alumni">Cancel</a></form></main></body></html>
