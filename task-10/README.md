@@ -12,5 +12,5 @@
 
 - [x] Jenkins quality gate placed before packaging/deployment
 - [x] JUnit and Selenium-screenshot artifact publication configured
-- [ ] Deliberate defect correction commits and local evidence — pending completion in this task
+- [x] Deliberate defect correction commits and local Maven evidence — see `evidence/defect-test.log` and `evidence/fix-test.log`
 - [ ] Failed/successful Jenkins pipeline evidence — pending-manual (no Jenkins server)

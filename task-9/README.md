@@ -7,4 +7,4 @@ Four critical end-to-end journeys are specified in [test-plan.md](test-plan.md) 
 - [x] Four critical journeys with assertions and deterministic test data
 - [x] Selenium WebDriver tests and failure-screenshot mechanism
 - [x] Container-based execution instructions
-- [ ] Local browser-suite report/screenshots — pending completion in this task
+- [x] Local browser suite passed: 4 Selenium journeys and 3 unit tests; output in `evidence/selenium-run.log` and report in `evidence/surefire-reports/`
