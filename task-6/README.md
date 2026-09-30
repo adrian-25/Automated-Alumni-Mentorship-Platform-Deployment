@@ -19,6 +19,6 @@ Run `cd app; mvn clean test spring-boot:run`, then use `http://localhost:8080`. 
 - [x] Functional MVP source implementation
 - [x] Second feature branch (`feature/mvp-workflow`)
 - [x] Unit tests for role/status rules
-- [ ] Real merge conflict and resolution evidence — pending completion in this task
+- [x] Real merge conflict created and resolved for `spring.application.name` — see `evidence/merge-conflict.log`
 - [ ] Release tag and promotion to `main` — pending completion in this task
 - [ ] Build/test log — pending completion in this task
