@@ -1,0 +1,15 @@
+target/
+.mvn/
+*.class
+*.log
+.env
+.env.*
+!.env.example
+application-local.properties
+idea/
+.idea/
+*.iml
+.vscode/
+selenium-screenshots/
+task-*/evidence/*.png
+task-*/evidence/*.mp4
