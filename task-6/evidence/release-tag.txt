@@ -1,0 +1,5 @@
+Release baseline
+
+Tag: v1.0.0
+Branch promoted: main
+Purpose: MVP release baseline after PR #2 merged into develop and main.

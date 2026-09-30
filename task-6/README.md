@@ -21,5 +21,5 @@ Run `cd app; mvn clean test spring-boot:run`, then use `http://localhost:8080`. 
 - [x] Unit tests for role/status rules
 - [x] Real merge conflict created and resolved for `spring.application.name` — see `evidence/merge-conflict.log`
 - [x] Pull request #2 reviewed and merged into `develop` — see `evidence/pr-merged.json`
-- [ ] Release tag and promotion to `main` — pending completion in this task
+- [x] `v1.0.0` release tag created after promotion to `main` — see `evidence/release-tag.txt`
 - [x] Build/test log: 3 JUnit tests pass in the Java 17/Maven container (`evidence/maven-test.log`)
