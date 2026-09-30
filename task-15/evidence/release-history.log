@@ -1,0 +1,12 @@
+e57ebfa ops(tasks-13-14): validate Ansible and add rollback plan
+6692b61 ops(task-11): build and verify Tomcat container lifecycle
+cb526bd ops(tasks-12-13): add Docker CD and Ansible provisioning
+eb1711c Merge pull request #3 from adrian-25/fix/task10-workflow-guard
+d6e9ea8 test(task-10): record failed and fixed quality gates
+8a3ed64 fix(task-10): restore admin completion authorization
+7196b26 test(task-10): introduce workflow authorization defect
+4f927c8 ci(task-10): add continuous testing quality gate
+f56a593 test(task-9): add Selenium mentorship journey suite
+2096fe4 ci(task-8): add parameterized deployment pipeline
+604c2b5 ci(task-7): add Jenkins Maven build job
+4c2c36c docs(task-6): record MVP release tag
