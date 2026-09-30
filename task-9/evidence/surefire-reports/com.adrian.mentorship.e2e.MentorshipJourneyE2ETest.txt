@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.adrian.mentorship.e2e.MentorshipJourneyE2ETest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.20 s -- in com.adrian.mentorship.e2e.MentorshipJourneyE2ETest
