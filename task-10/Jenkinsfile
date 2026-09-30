@@ -1,0 +1,20 @@
+pipeline {
+  agent any
+  parameters { booleanParam(name: 'RUN_SELENIUM', defaultValue: false, description: 'Run browser journeys when a Selenium endpoint is configured.') }
+  stages {
+    stage('Checkout') { steps { checkout scm } }
+    stage('Unit test quality gate') { steps { dir('app') { sh 'mvn -B clean test' } } }
+    stage('Browser test quality gate') {
+      when { expression { params.RUN_SELENIUM } }
+      steps { dir('app') { sh 'RUN_SELENIUM=true mvn -B test' } }
+    }
+    stage('Package') { steps { dir('app') { sh 'mvn -B package -DskipTests' } } }
+    stage('Deploy') { steps { echo 'Deployment belongs after all quality gates pass.' } }
+  }
+  post {
+    always {
+      junit allowEmptyResults: false, testResults: 'app/target/surefire-reports/*.xml'
+      archiveArtifacts allowEmptyArchive: true, artifacts: 'app/target/selenium-screenshots/*.png'
+    }
+  }
+}
