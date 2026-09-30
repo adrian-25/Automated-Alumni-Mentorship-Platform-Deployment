@@ -21,5 +21,5 @@ Implemented an alumni directory with create, list, edit, and name/expertise sear
 - [x] Working first core feature on feature branch
 - [x] Create, view, update, and search alumni profiles
 - [x] Server-side validation
-- [ ] PR review comment and merge into develop — pending completion in this task
+- [x] Pull request #1 review comment and merge into `develop` — see `evidence/pr-review.json` and `evidence/pr-merged.json`
 - [x] Maven test executed in the official Java 17/Maven container; output in `evidence/maven-test.log`
