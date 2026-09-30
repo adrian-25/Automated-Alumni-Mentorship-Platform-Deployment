@@ -7,4 +7,5 @@ Ansible is used for configuration management. The playbook installs Docker prere
 - [x] Server prerequisite/configuration specification
 - [x] Inventory, variables, Ansible playbook, required collection, and check script
 - [x] Health-check task built into the playbook
-- [ ] Ansible collection installation and first target-node execution log — pending-manual (Ansible and target host are unavailable)
+- [x] Playbook/collection syntax validation completed in an Ansible container (`evidence/ansible-syntax-check.log`)
+- [ ] First target-node `--check` and apply execution log — pending-manual (no reachable target host)

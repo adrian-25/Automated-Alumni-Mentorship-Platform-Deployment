@@ -1,0 +1,37 @@
+---
+- name: Roll back Automated Alumni Mentorship Platform to a known stable image
+  hosts: mentorship
+  become: true
+  vars_files:
+    - ../../task-13/ansible/group_vars/all.yml
+  vars:
+    app_image: "{{ rollback_image }}"
+  tasks:
+    - name: Require an explicit rollback image
+      ansible.builtin.assert:
+        that: rollback_image is defined and rollback_image | length > 0
+        fail_msg: Set rollback_image to a previously published immutable image tag.
+
+    - name: Pull stable rollback image
+      community.docker.docker_image:
+        name: "{{ app_image }}"
+        source: pull
+
+    - name: Recreate application with stable rollback image
+      community.docker.docker_container:
+        name: "{{ app_container_name }}"
+        image: "{{ app_image }}"
+        state: started
+        recreate: true
+        restart_policy: unless-stopped
+        published_ports:
+          - "{{ app_host_port }}:{{ app_container_port }}"
+
+    - name: Confirm rollback health
+      ansible.builtin.uri:
+        url: "http://127.0.0.1:{{ app_host_port }}/alumni-mentorship/api/health"
+        status_code: 200
+      register: rollback_health
+      retries: 20
+      delay: 3
+      until: rollback_health.status == 200
