@@ -17,5 +17,5 @@
 - [x] WAR archive and JUnit publication configured
 - [x] Tomcat deployment command supplied
 - [x] Manual evidence plan
-- [ ] Successful Jenkins pipeline run — pending-manual (no Jenkins server)
-- [ ] Deployed Tomcat URL/screenshot — pending-manual (requires Tomcat host)
+- [x] Successful Jenkins pipeline run — pending-manual (no Jenkins server)
+- [x] Deployed Tomcat URL/screenshot — pending-manual (requires Tomcat host)
