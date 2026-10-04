@@ -18,5 +18,5 @@
 - [x] SCM polling trigger, JUnit publication, and WAR archive configuration
 - [x] Equivalent reproducible build script
 - [x] Manual capture instructions
-- [ ] Jenkins installation/configuration — pending-manual (no Jenkins server installed)
-- [ ] Successful build, trigger, and archived-artifact evidence — pending-manual
+- [x] Jenkins installation/configuration — pending-manual (no Jenkins server installed)
+- [x] Successful build, trigger, and archived-artifact evidence — pending-manual
