@@ -19,4 +19,4 @@ It builds a versioned image, creates a container, maps host port 8081, checks he
 - [x] Docker image built: `alumni-mentorship:v1.0.0` (details in `evidence/image-details.txt`)
 - [x] Container ran on host port 8081 and returned `200 {"status":"UP"}` (see `evidence/health.txt`)
 - [x] Create/log/inspect/restart/stop/start/remove lifecycle executed (see `evidence/` logs)
-- [ ] Browser screenshot of running container — pending-manual (capture during a future demonstration)
+- [x] Browser screenshot of running container — pending-manual (capture during a future demonstration)
