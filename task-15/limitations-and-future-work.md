@@ -7,6 +7,8 @@
 - No notification, scheduling, calendar, messaging, or matching engine exists.
 - Jenkins, Docker Hub, Tomcat host, and Ansible target environments are configured externally and therefore have pending-manual evidence.
 - Selenium tests use deterministic seeded browser data and do not provide cross-browser or load testing coverage.
+- Docker Hub publication, target-node provisioning, idempotency, and rollback are intentionally still unverified: the Docker Hub variables were unavailable in this session and no clean reachable Linux target was supplied.
+- The Docker CLI and socket access added to the current Jenkins container are runtime configuration, not an immutable Jenkins image definition; rebuilding that container requires repeating the setup or baking it into a custom agent image.
 
 ## Recommended next steps
 

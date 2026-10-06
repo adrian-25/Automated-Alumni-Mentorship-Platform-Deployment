@@ -1,14 +1,12 @@
 # Final pending-manual checklist
 
-| Task | Item still to capture/perform |
+| Task | Item still to capture or perform |
 |---|---|
-| 3 | Optional native Java/Maven setup validation after installing them on the host |
-| 4 | Create GitHub issues from the supplied templates |
-| 7 | Install/configure Jenkins; capture job, successful build, trigger, and archived WAR |
-| 8 | Run Jenkins pipeline against real Tomcat; capture deployed URL and configuration |
-| 10 | Capture failed and successful **Jenkins** pipeline/report views (local Maven proof is already committed) |
-| 11 | Capture browser screenshot of the running container for presentation |
-| 12 | Configure Docker Hub/Jenkins credentials; publish versioned image and capture CD run |
-| 13 | Run playbook `--check` and normal apply against a real Linux target |
-| 14 | Run clean-target provisioning twice, health validation, and rollback against published tags |
-| 15 | Capture final live demo/Jenkins/registry/Ansible proof, record video if required, export presentation, and complete viva |
+| 3 | Optional native Java/Maven setup validation after installing them on the host. |
+| 4 | Create GitHub issues from the supplied templates. |
+| 12 | Set `DOCKERHUB_USER` and `DOCKERHUB_TOKEN` in the execution environment; create Jenkins credential `dockerhub-credentials`; publish a versioned `adrian255/alumni-mentorship` image and capture the real CD run and Docker Hub tags. |
+| 13 | Supply a clean reachable Linux host and SSH user; run the corrected temporary-inventory runner with `--check` and an apply using a published immutable image. |
+| 14 | On that target, capture the first apply, second apply with `changed=0`, application health, and rollback to a previously published immutable tag. |
+| 15 | Capture the final live Jenkins-to-registry-to-target demonstration, record the required video, export the presentation, and complete the viva. |
+
+Completed live evidence: Task 7 CI, Task 8 Tomcat pipeline/deployment, Task 9 Selenium suite, Task 10 failed/fixed Jenkins testing builds, and Task 11 running-container browser view.

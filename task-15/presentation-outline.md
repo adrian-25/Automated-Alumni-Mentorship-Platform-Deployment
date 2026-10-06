@@ -12,3 +12,5 @@
 10. Results, limitations, future work, and viva readiness
 
 For the demonstration, use only screenshots/logs captured from your own Jenkins, Docker Hub, Tomcat, and target-host runs. Pair each screenshot with the matching evidence filename specified in the task README.
+
+Live evidence now available for the presentation: Task 10 defect/fix Stage Views and Test Results, Task 11 browser dashboard, and the Task 8 Tomcat deployment. Explain the original raw-SHA Jenkins failure as a configuration lesson, not as test-failure evidence. Keep Docker Hub and target-host slides labelled pending until their real runs are captured.

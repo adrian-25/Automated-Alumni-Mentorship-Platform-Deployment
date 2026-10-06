@@ -8,3 +8,5 @@
 6. **How does rollback work here?** The rollback playbook explicitly recreates the container from a previously stable immutable image tag and validates health.
 7. **Why use Jenkins credentials?** Secrets stay out of Git and are injected only for the stage needing them.
 8. **What is deliberately excluded from the MVP?** SSO, managed persistence, notifications, calendar scheduling, and production observability.
+9. **Why did the first Task 10 Jenkins build fail before testing?** Its branch specifier was a raw commit SHA. Jenkins Git SCM requested it as a remote branch ref, which does not exist. Immutable evidence branches fixed checkout without moving a tag or branch.
+10. **How was the Ansible inventory bug fixed?** Shell-looking `${...}` text in an INI file is literal to Ansible. The checked-in inventory is target-free, and the PowerShell runners generate a temporary inventory from explicit mandatory host and SSH-user parameters.
