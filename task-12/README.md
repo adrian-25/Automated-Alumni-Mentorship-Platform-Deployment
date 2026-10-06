@@ -9,6 +9,10 @@ The supplied pipeline performs unit/browser quality gates, builds an image tagge
 3. Set `DOCKERHUB_REPOSITORY` and optionally `HOST_PORT` in the job environment.
 4. Run with `PUSH_IMAGE=true` only after credentials are present.
 
+## Current Jenkins prerequisite
+
+The Docker client was installed in the running Jenkins container and verified against its mounted Docker daemon (`evidence/jenkins-docker-client.txt`). This is a container-local change and must be repeated or baked into an agent image if Jenkins is recreated. Registry publication remains pending: this execution environment has neither `DOCKERHUB_USER` nor `DOCKERHUB_TOKEN`, so no Docker Hub credential, image push, or CD build has been fabricated.
+
 ## Deliverables checklist
 
 - [x] Versioned Docker build/push/deploy pipeline
