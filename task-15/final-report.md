@@ -31,4 +31,6 @@ The live Jenkins testing job now has a real failed-test build (#2 on `evidence/t
 
 The Task 11 container was also verified in a real browser at `http://localhost:8081/alumni-mentorship/`; its dashboard screenshot is committed. Jenkins now has a Docker client and can talk to the mounted Docker socket, but this container-local setup is transient if the Jenkins container is recreated. Docker Hub publication and the clean target-host applies are not claimed because this session has no Docker Hub credentials and no supplied target host.
 
+Task 3 also has a native Windows verification: Java 17 and Maven 3.10 completed `mvn verify` and packaged the WAR. The first `clean` encountered a Windows lock on `app/target`; rerunning the non-destructive `verify` lifecycle completed successfully.
+
 Operational issues resolved during the project were: the first CI build used the wrong repository URL; Maven was initially absent inside Jenkins; the Maven 3.9.9 tool was selected for reproducible Java 17 builds; Task 8's default Tomcat webapps path did not exist and was replaced by `/tomcat_webapps`; and the Ansible INI environment placeholders were replaced with generated temporary inventories.
