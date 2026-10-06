@@ -1,0 +1,174 @@
+Started by user Adrian Dsouza
+Obtained task-10/Jenkinsfile from git https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/alumni-mentorship-testing
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment.git
+ > git init /var/jenkins_home/workspace/alumni-mentorship-testing # timeout=10
+Fetching upstream changes from https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git rev-parse refs/remotes/origin/evidence/task10-defect^{commit} # timeout=10
+Checking out Revision 7196b261ddaeef38434ee9e57f7d0e46fedaaa0b (refs/remotes/origin/evidence/task10-defect)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 7196b261ddaeef38434ee9e57f7d0e46fedaaa0b # timeout=10
+Commit message: "test(task-10): introduce workflow authorization defect"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/alumni-mentorship-testing/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment.git # timeout=10
+Fetching upstream changes from https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/evidence/task10-defect^{commit} # timeout=10
+Checking out Revision 7196b261ddaeef38434ee9e57f7d0e46fedaaa0b (refs/remotes/origin/evidence/task10-defect)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 7196b261ddaeef38434ee9e57f7d0e46fedaaa0b # timeout=10
+Commit message: "test(task-10): introduce workflow authorization defect"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Unit test quality gate)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/alumni-mentorship-testing/app
+[Pipeline] {
+[Pipeline] sh
++ mvn -B clean test
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< com.adrian.mentorship:alumni-mentorship >---------------
+[INFO] Building Automated Alumni Mentorship Platform 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ alumni-mentorship ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ alumni-mentorship ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 8 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ alumni-mentorship ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 14 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ alumni-mentorship ---
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/alumni-mentorship-testing/app/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ alumni-mentorship ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.2:test (default-test) @ alumni-mentorship ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.adrian.mentorship.request.MentorshipRequestServiceTest
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/var/jenkins_home/.m2/repository/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.172 s <<< FAILURE! -- in com.adrian.mentorship.request.MentorshipRequestServiceTest
+[ERROR] com.adrian.mentorship.request.MentorshipRequestServiceTest.onlyAdminCanCompleteAcceptedRequest -- Time elapsed: 0.010 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:31)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:183)
+	at com.adrian.mentorship.request.MentorshipRequestServiceTest.onlyAdminCanCompleteAcceptedRequest(MentorshipRequestServiceTest.java:12)
+	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+	at java.base/java.util.ArrayList.forEach(Unknown Source)
+
+[INFO] Running com.adrian.mentorship.e2e.MentorshipJourneyE2ETest
+[WARNING] Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0.001 s -- in com.adrian.mentorship.e2e.MentorshipJourneyE2ETest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   MentorshipRequestServiceTest.onlyAdminCanCompleteAcceptedRequest:12 expected: <true> but was: <false>
+[INFO] 
+[ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 4
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.413 s
+[INFO] Finished at: 2026-10-06T09:55:44Z
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.2:test (default-test) on project alumni-mentorship: There are test failures.
+[ERROR] 
+[ERROR] See /var/jenkins_home/workspace/alumni-mentorship-testing/app/target/surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Browser test quality gate)
+Stage "Browser test quality gate" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Package)
+Stage "Package" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+Stage "Deploy" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE
