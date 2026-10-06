@@ -1,8 +1,8 @@
-# Task 3 — Requirements, Architecture and Technology Setup
+# Task 3 - Requirements, Architecture and Technology Setup
 
 ## SRS summary
 
-The system shall manage students, alumni, and mentorship requests. It shall allow users to create, view, update, and search profiles; create requests; enforce role-aware request status changes; and show a dashboard summary. A request begins `REQUESTED`, an alumnus may make it `ACCEPTED` or `REJECTED`, and an administrator may make an accepted request `COMPLETED`.
+The system manages students, alumni, and mentorship requests. It allows users to create, view, update, and search profiles; create requests; enforce role-aware request status changes; and show a dashboard summary. A request begins `REQUESTED`, an alumnus may make it `ACCEPTED` or `REJECTED`, and an administrator may make an accepted request `COMPLETED`.
 
 ## Use-case diagram
 
@@ -66,14 +66,14 @@ flowchart TB
 
 ## Local setup
 
-1. Install JDK 17 and Maven 3.9+; set `JAVA_HOME` and ensure both are on `PATH`.
+1. Install Java 17 and Maven 3.9+; set `JAVA_HOME` and ensure both are on `PATH`.
 2. From `app`, run `mvn clean verify`.
 3. Run `mvn spring-boot:run`; open `http://localhost:8080`.
 4. Package with `mvn package`, then copy `target/alumni-mentorship.war` to Tomcat's `webapps/` directory.
 
-## Environment inspection evidence
+## Environment evidence
 
-`task-3/evidence/environment-check.txt` records the actual availability check. This machine currently lacks Java and Maven on `PATH`, so the Maven setup validation is `pending-manual` until they are installed.
+The original host PATH inspection is retained in `evidence/environment-check.txt`. A native Windows verification subsequently completed with Java 17 and Maven 3.10 from local portable tool directories, using `mvn verify`; the full real log is `evidence/native-maven-verify.log`. The first `clean` attempt found a Windows lock on `app/target`, so the successful verification deliberately used `verify` without deleting the output directory.
 
 ## Deliverables checklist
 
@@ -83,4 +83,4 @@ flowchart TB
 - [x] Stack and deployment target selected
 - [x] Local setup instructions
 - [x] Actual environment check saved
-- [ ] Working Maven local setup — pending-manual (install Java 17 and Maven)
+- [x] Working native Maven local setup - Java 17/Maven 3.10 completed `mvn verify` on the Windows host (`evidence/native-maven-verify.log`)
