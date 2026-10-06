@@ -17,4 +17,6 @@ This task establishes the root documentation, ignore rules, issue templates, col
 - [x] Mandatory task folder structure
 - [x] Initial WAR-capable Spring Boot skeleton
 - [x] Meaningful initial commits pushed to `main`
-- [ ] GitHub issues — pending-manual (create from the supplied issue templates in the GitHub UI)
+- [x] GitHub issues created from the supplied templates:
+  - [#4 — fix: validate invalid request status transitions](https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment/issues/4)
+  - [#5 — feat: add mentorship-request filtering](https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment/issues/5)
