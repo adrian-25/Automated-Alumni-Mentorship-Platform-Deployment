@@ -1,0 +1,85 @@
+Started by an SCM change
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/alumni-mentorship-ci
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/alumni-mentorship-ci/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment # timeout=10
+Fetching upstream changes from https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+ > git fetch --tags --force --progress -- https://github.com/adrian-25/Automated-Alumni-Mentorship-Platform-Deployment +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 9cfebebf21010cdd498c59ea7e431311e62fc7c1 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 9cfebebf21010cdd498c59ea7e431311e62fc7c1 # timeout=10
+Commit message: "Update README with completed task status"
+ > git rev-list --no-walk f2223b039a3126d9df5d5b763e63a1ff8f8bd262 # timeout=10
+[alumni-mentorship-ci] $ /var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/Maven3/bin/mvn -f app/pom.xml clean package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< com.adrian.mentorship:alumni-mentorship >---------------
+[INFO] Building Automated Alumni Mentorship Platform 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ alumni-mentorship ---
+[INFO] Deleting /var/jenkins_home/workspace/alumni-mentorship-ci/app/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ alumni-mentorship ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 8 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ alumni-mentorship ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 14 source files with javac [debug parameters release 17] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ alumni-mentorship ---
+[INFO] skip non existing resourceDirectory /var/jenkins_home/workspace/alumni-mentorship-ci/app/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ alumni-mentorship ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.2:test (default-test) @ alumni-mentorship ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.adrian.mentorship.request.MentorshipRequestServiceTest
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/var/jenkins_home/.m2/repository/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.314 s -- in com.adrian.mentorship.request.MentorshipRequestServiceTest
+[INFO] Running com.adrian.mentorship.e2e.MentorshipJourneyE2ETest
+[WARNING] Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0.001 s -- in com.adrian.mentorship.e2e.MentorshipJourneyE2ETest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 7, Failures: 0, Errors: 0, Skipped: 4
+[INFO] 
+[INFO] 
+[INFO] --- war:3.4.0:war (default-war) @ alumni-mentorship ---
+[INFO] Packaging webapp
+[INFO] Assembling webapp [alumni-mentorship] in [/var/jenkins_home/workspace/alumni-mentorship-ci/app/target/alumni-mentorship]
+[INFO] Processing war project
+[INFO] Building war: /var/jenkins_home/workspace/alumni-mentorship-ci/app/target/alumni-mentorship.war
+[INFO] 
+[INFO] --- spring-boot:3.4.3:repackage (repackage) @ alumni-mentorship ---
+[INFO] Replacing main artifact /var/jenkins_home/workspace/alumni-mentorship-ci/app/target/alumni-mentorship.war with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /var/jenkins_home/workspace/alumni-mentorship-ci/app/target/alumni-mentorship.war.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.135 s
+[INFO] Finished at: 2026-10-04T10:02:17Z
+[INFO] ------------------------------------------------------------------------
+Archiving artifacts
+Recording test results
+[Checks API] No suitable checks publisher found.
+Finished: SUCCESS

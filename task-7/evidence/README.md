@@ -1,11 +1,6 @@
-# Manual evidence to capture
+# Captured Jenkins evidence
 
-After installing Jenkins and creating/importing the supplied Freestyle job, save:
-
-1. `jenkins-install.png` — Jenkins dashboard/version and configured JDK/Maven tools.
-2. `job-config.png` — source branch, SCM polling trigger, build step, and artifact archive configuration.
-3. `successful-build.log` — Console Output of a successful build.
-4. `trigger.png` — build cause showing SCM polling or GitHub webhook.
-5. `artifact.png` — archived `alumni-mentorship.war` from the build page.
-
-Do not replace these names with invented outputs; they are intentionally excluded from Git.
+- `jenkins-job-configuration.png` - real local Jenkins job configuration showing the Git URL, SCM polling, Maven build, JUnit publication, and WAR archive.
+- `jenkins-success-build-8-console.log` - real successful Maven/Jenkins console output for build #8.
+- `jenkins-scm-change-build.png` - real build #8 page showing its SCM-change cause.
+- `jenkins-archived-war.png` - real archived `alumni-mentorship.war` page for build #8.

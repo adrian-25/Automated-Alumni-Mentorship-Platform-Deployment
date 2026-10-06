@@ -18,5 +18,5 @@
 - [x] SCM polling trigger, JUnit publication, and WAR archive configuration
 - [x] Equivalent reproducible build script
 - [x] Manual capture instructions
-- [x] Jenkins installation/configuration — pending-manual (no Jenkins server installed)
-- [x] Successful build, trigger, and archived-artifact evidence — pending-manual
+- [x] Jenkins installation/configuration — verified on the local Jenkins LTS instance; `evidence/jenkins-job-configuration.png` shows the Git URL, `H/5 * * * *` poll trigger, Maven 3 build step, JUnit publication, and WAR archive rule
+- [x] Successful build, trigger, and archived-artifact evidence — build #8 was successful; see `evidence/jenkins-success-build-8-console.log`, `evidence/jenkins-scm-change-build.png`, and `evidence/jenkins-archived-war.png`
