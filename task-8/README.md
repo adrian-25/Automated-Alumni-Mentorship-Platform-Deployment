@@ -17,5 +17,5 @@
 - [x] WAR archive and JUnit publication configured
 - [x] Tomcat deployment command supplied
 - [x] Manual evidence plan
-- [x] Successful Jenkins pipeline run — pending-manual (no Jenkins server)
-- [x] Deployed Tomcat URL/screenshot — pending-manual (requires Tomcat host)
+- [x] Successful Jenkins pipeline run — Jenkins build #9 ran with `DEPLOY_MODE=tomcat` and `TOMCAT_WEBAPPS=/tomcat_webapps`; its console output and Jenkins build/parameter screenshots are in `evidence/`
+- [x] Deployed Tomcat URL/screenshot — `http://localhost:8082/alumni-mentorship/` returned HTTP 200 after build #9; see `evidence/tomcat-alumni-mentorship.png`
