@@ -9,3 +9,9 @@ The image was built with:
 docker build -f task-11/Dockerfile -t adrian255/alumni-mentorship:1-bd157e6 -t adrian255/alumni-mentorship:latest .
 
 Both tags were published with Docker Desktop. This record does not claim a Jenkins CD run.
+
+Rollback image publication
+Date: 2026-10-11
+Source: Git tag v1.0.0 (commit 356ad90)
+Immutable tag: v1.0.0
+Manifest digest: sha256:30d079c86e213bf2eef7a58debdbcf5fc092c874fdf21eb5e37e42a92a0ad29f

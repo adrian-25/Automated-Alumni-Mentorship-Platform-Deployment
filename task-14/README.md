@@ -8,6 +8,8 @@ The reliability runner now generates its target inventory from the mandatory `Ta
 
 On Windows, `scripts/reliability-run-docker.ps1` runs the first apply, idempotency apply, and rollback through Docker Desktop. It uses `host.docker.internal:2222` by default, the local automation SSH key, and saves the three execution logs under `evidence/`. Use `-RollbackOnly` to retry only the rollback portion; its Docker API timeout is three minutes to allow the Java/Tomcat container to stop cleanly.
 
+The true prior rollback image is `adrian255/alumni-mentorship:v1.0.0`, built from the immutable Git tag `v1.0.0` and published to Docker Hub on 2026-10-11. Use it as `PreviousStableImage`; do not use the current `1-bd157e6` tag for both values.
+
 ## Deliverables checklist
 
 - [x] Clean-target provisioning, idempotency, health, and rollback procedure
