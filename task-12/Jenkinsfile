@@ -1,6 +1,10 @@
 pipeline {
   agent any
-  parameters { booleanParam(name: 'PUSH_IMAGE', defaultValue: false, description: 'Push only when Docker Hub credentials are configured.') }
+  parameters {
+    booleanParam(name: 'PUSH_IMAGE', defaultValue: false, description: 'Push only when Docker Hub credentials are configured.')
+    string(name: 'DOCKERHUB_REPOSITORY', defaultValue: 'adrian255/alumni-mentorship', description: 'Docker image repository.')
+    string(name: 'HOST_PORT', defaultValue: '8083', description: 'Unused local host port for the fresh Jenkins deployment.')
+  }
   environment {
     CONTAINER_NAME = 'alumni-mentorship'
   }
