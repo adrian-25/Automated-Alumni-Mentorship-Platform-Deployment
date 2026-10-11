@@ -51,7 +51,10 @@ pipeline {
         set -euo pipefail
         docker rm -f "$CONTAINER_NAME" 2>/dev/null || true
         docker run -d --name "$CONTAINER_NAME" --restart unless-stopped -p "$HOST_PORT:8080" "$IMAGE_REPOSITORY:$IMAGE_TAG"
-        for attempt in {1..20}; do curl -fsS "http://localhost:$HOST_PORT/alumni-mentorship/api/health" && exit 0; sleep 3; done
+        for attempt in {1..20}; do
+          [ "$(docker inspect --format '{{if .State.Health}}{{.State.Health.Status}}{{else}}no-healthcheck{{end}}' "$CONTAINER_NAME")" = healthy ] && exit 0
+          sleep 3
+        done
         docker logs "$CONTAINER_NAME"; exit 1
       ''' }
     }
