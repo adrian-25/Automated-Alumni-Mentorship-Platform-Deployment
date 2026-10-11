@@ -1,0 +1,4 @@
+FROM quay.io/ansible/creator-ee:latest
+
+USER root
+RUN microdnf install -y sshpass && microdnf clean all

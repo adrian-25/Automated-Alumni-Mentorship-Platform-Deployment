@@ -4,9 +4,15 @@ Task 14 provides a clean-target execution plan and a rollback playbook. Applying
 
 The reliability runner now generates its target inventory from the mandatory `TargetHost` and `SshUser` parameters. This replaces the former literal `${MENTORSHIP_HOST}` and `${MENTORSHIP_SSH_USER}` INI placeholders, which Ansible does not expand.
 
+`SshPort` defaults to 22. Set it to 2222 for the documented VirtualBox NAT port-forwarding setup.
+
+On Windows, `scripts/reliability-run-docker.ps1` runs the first apply, idempotency apply, and rollback through Docker Desktop. It uses `host.docker.internal:2222` by default, the local automation SSH key, and saves the three execution logs under `evidence/`. Use `-RollbackOnly` to retry only the rollback portion; its Docker API timeout is three minutes to allow the Java/Tomcat container to stop cleanly.
+
 ## Deliverables checklist
 
 - [x] Clean-target provisioning, idempotency, health, and rollback procedure
 - [x] Explicit Ansible rollback playbook and reusable reliability runner
 - [x] Manual evidence requirements with no committed target secrets
-- [ ] Provisioned target, idempotency, health, and rollback execution evidence — pending-manual (requires clean reachable Linux host and published registry images)
+- [x] First provisioning apply on the VirtualBox Ubuntu target, including Docker install, image pull, container start, and health `UP` ([`evidence/first-apply.log`](evidence/first-apply.log))
+- [x] Rollback execution completed with a recreated container and passing health check ([`evidence/rollback.log`](evidence/rollback.log))
+- [ ] Second apply with `changed=0` — still required to complete the idempotency evidence; the earlier attempt failed before authentication was corrected.

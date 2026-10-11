@@ -1,9 +1,8 @@
-# Manual execution evidence
+# Execution evidence
 
-Install Ansible on the control node, set a real `MENTORSHIP_HOST`, `MENTORSHIP_SSH_USER`, and published `APP_IMAGE`, then run:
+The Windows/Docker controller was run against the local VirtualBox Ubuntu target through port `2222`, using the published immutable image `adrian255/alumni-mentorship:1-bd157e6`.
 
-```powershell
-./task-13/scripts/run-check.ps1 -Host <host> -User <ssh-user> -Image <registry/image:tag>
-```
+- The user-observed check-mode run completed with `ok=5`, `changed=4`, and `skipped=5`. Docker-dependent work is intentionally skipped in check mode on a clean host.
+- The subsequent real apply is preserved at [`../../task-14/evidence/first-apply.log`](../../task-14/evidence/first-apply.log). It installs Docker, starts the container, and ends with `"status": "UP"`.
 
-Save the first `--check --diff` output in `first-check.log`, then a normal apply in `first-apply.log`. The remote host and credentials must remain outside Git.
+No target address, password, or private key is committed to this repository.

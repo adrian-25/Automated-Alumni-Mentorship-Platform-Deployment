@@ -11,5 +11,6 @@ idea/
 *.iml
 .vscode/
 selenium-screenshots/
+.presentation-build/
 task-*/evidence/*.png
 task-*/evidence/*.mp4

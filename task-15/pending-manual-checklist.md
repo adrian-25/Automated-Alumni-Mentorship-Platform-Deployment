@@ -2,10 +2,9 @@
 
 | Task | Item still to capture or perform |
 |---|---|
-| 4 | Create GitHub issues from the supplied templates. |
-| 12 | Set `DOCKERHUB_USER` and `DOCKERHUB_TOKEN` in the execution environment; create Jenkins credential `dockerhub-credentials`; publish a versioned `adrian255/alumni-mentorship` image and capture the real CD run and Docker Hub tags. |
-| 13 | Supply a clean reachable Linux host and SSH user; run the corrected temporary-inventory runner with `--check` and an apply using a published immutable image. |
-| 14 | On that target, capture the first apply, second apply with `changed=0`, application health, and rollback to a previously published immutable tag. |
-| 15 | Capture the final live Jenkins-to-registry-to-target demonstration, record the required video, export the presentation, and complete the viva. |
+| 12 | Create Jenkins credential `dockerhub-credentials`, set `DOCKERHUB_REPOSITORY=adrian255/alumni-mentorship`, and capture the real Jenkins CD run. Docker Hub image `adrian255/alumni-mentorship:1-bd157e6` is already published. |
+| 13 | Completed on the local VirtualBox Ubuntu target: dry-run and apply using `adrian255/alumni-mentorship:1-bd157e6`; the deployed health endpoint reports `UP`. |
+| 14 | First apply, health, and rollback completed on the target. Capture one remaining second apply with `changed=0` for complete idempotency evidence. |
+| 15 | Capture the final live Jenkins-to-registry-to-target demonstration, record the required video, and complete the viva. The exported presentation is available at `deliverables/alumni-mentorship-devops-presentation.pptx`. |
 
-Completed live evidence: Task 3 native Java/Maven verification, Task 7 CI, Task 8 Tomcat pipeline/deployment, Task 9 Selenium suite, Task 10 failed/fixed Jenkins testing builds, and Task 11 running-container browser view.
+Completed live evidence: Task 3 native Java/Maven verification, Task 4 GitHub issues, Task 7 CI, Task 8 Tomcat pipeline/deployment, Task 9 Selenium suite, Task 10 failed/fixed Jenkins testing builds, Task 11 running-container browser view, Task 12 Docker Hub publication, Task 13 VM apply, and Task 14 rollback/health verification.

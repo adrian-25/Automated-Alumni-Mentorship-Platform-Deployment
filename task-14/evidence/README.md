@@ -1,9 +1,9 @@
-# Manual reliability evidence
+# Reliability evidence
 
-From a control node with Ansible and a clean Linux target, invoke:
+Live VirtualBox Ubuntu-target evidence is captured here:
 
-```powershell
-./task-14/scripts/reliability-run.ps1 -TargetHost <host> -SshUser <user> -CurrentImage <registry/image:new-tag> -PreviousStableImage <registry/image:stable-tag>
-```
+- [`first-apply.log`](first-apply.log) — Docker provisioning, container start, and application health `UP`.
+- [`rollback.log`](rollback.log) — image pull, container recreation, and a successful post-rollback health check.
+- [`health-check-2026-10-11.txt`](health-check-2026-10-11.txt) — independent SSH and endpoint verification after rollback.
 
-Capture `first-apply.log`, `idempotency-apply.log`, `rollback.log`, and a real `health-check.txt`. The target IP, SSH credentials, and registry token must not be committed.
+`idempotency-apply.log` records the earlier failed authentication attempt. A later second apply with `changed=0` is still needed for a complete idempotency demonstration. Target addresses, passwords, and private keys are not committed.

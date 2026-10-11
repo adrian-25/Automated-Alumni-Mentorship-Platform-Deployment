@@ -8,5 +8,6 @@ The final report, troubleshooting guide, limitations/future plan, presentation o
 - [x] Troubleshooting guide, limitations, and future enhancements
 - [x] Presentation outline and viva preparation material
 - [x] Consolidated pending-manual checklist
+- [x] Exported 10-slide final presentation (`../deliverables/alumni-mentorship-devops-presentation.pptx`)
 - [ ] Live Jenkins → registry → container → target-node end-to-end demonstration — pending-manual (external Jenkins/registry/target host required)
-- [ ] Final screenshots/video/exported presentation and viva — pending-manual
+- [ ] Final live screenshots/video and viva — pending-manual

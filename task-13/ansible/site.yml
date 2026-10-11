@@ -43,12 +43,14 @@
         name: docker
         state: started
         enabled: true
+      when: not ansible_check_mode
 
     - name: Pull selected application image
       community.docker.docker_image:
         name: "{{ app_image }}"
         source: pull
         force_source: false
+      when: not ansible_check_mode
 
     - name: Run the application container
       community.docker.docker_container:
@@ -61,6 +63,7 @@
         env_file: "{{ app_env_file }}"
         comparisons:
           image: strict
+      when: not ansible_check_mode
 
     - name: Wait for application health endpoint
       ansible.builtin.uri:
@@ -71,7 +74,9 @@
       retries: 20
       delay: 3
       until: health.status == 200 and health.json.status == 'UP'
+      when: not ansible_check_mode
 
     - name: Report health status
       ansible.builtin.debug:
         var: health.json
+      when: not ansible_check_mode

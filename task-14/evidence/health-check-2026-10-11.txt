@@ -1,0 +1,4 @@
+VM_SSH=OK
+{"status":"UP"}
+
+Verified after the successful rollback run on 2026-10-11 through the local VirtualBox NAT SSH forward.

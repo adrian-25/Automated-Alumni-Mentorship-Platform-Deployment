@@ -23,6 +23,8 @@
         image: "{{ app_image }}"
         state: started
         recreate: true
+        # Java/Tomcat shutdown can exceed the module's 60-second API default.
+        timeout: 180
         restart_policy: unless-stopped
         published_ports:
           - "{{ app_host_port }}:{{ app_container_port }}"
