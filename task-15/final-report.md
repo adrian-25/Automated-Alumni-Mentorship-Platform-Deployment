@@ -18,18 +18,21 @@ The Spring Boot 3 application is Java 17 and WAR-capable. Thymeleaf serves the M
 | Container build | `alumni-mentorship:v1.0.0` built from `task-11/Dockerfile` |
 | Container runtime | Tomcat container returned HTTP 200 / `{"status":"UP"}` |
 | Configuration syntax | Task 13 playbook and Task 14 rollback playbook passed Ansible syntax validation |
+| Jenkins CD | Build #12 passed 7 tests with 0 failures, deployed a Docker container, and passed the Docker health gate |
+| Target provisioning | VirtualBox Ubuntu first apply passed with `ok=10 changed=2 unreachable=0 failed=0` |
+| Idempotency and rollback | Second apply passed with `ok=10 changed=0 unreachable=0 failed=0`; rollback to `v1.0.0` passed with `ok=5 changed=1 unreachable=0 failed=0` |
 
 Actual console output and reports live in the relevant task `evidence/` directories; none are fabricated.
 
 ## Deployment operations
 
-Use the Task 12 pipeline only on a Jenkins agent with Docker, the configured Jenkins credential ID, and an explicit Docker Hub repository. Use Task 13 against a dedicated Linux host over SSH, and pass the immutable image tag via `APP_IMAGE`. Run Task 14's second apply to confirm no drift, and keep a previously working immutable tag available for rollback.
+Use the Task 12 pipeline only on a Jenkins agent with Docker, the configured Jenkins credential ID, and an explicit Docker Hub repository. Use Task 13 against a dedicated Linux host over SSH, and pass the immutable image tag via `APP_IMAGE`. The completed Task 14 run confirmed no drift on the second apply and restored the service from the explicitly selected `v1.0.0` image.
 
 ## Final verification update
 
 The live Jenkins testing job now has a real failed-test build (#2 on `evidence/task10-defect` at `7196b261ddaeef38434ee9e57f7d0e46fedaaa0b`) and a real successful build (#3 on `evidence/task10-fix` at `8a3ed64ef45ccb77bd0bebec51bc989c5f47a028`). Stage View, JUnit Test Result, and console records are committed under Task 10. The earlier red build #1 is retained as evidence of the failed raw-SHA branch attempt; Git cannot fetch a raw SHA as `refs/heads/<sha>`.
 
-The Task 11 container was also verified in a real browser at `http://localhost:8081/alumni-mentorship/`; its dashboard screenshot is committed. Jenkins now has a Docker client and can talk to the mounted Docker socket, but this container-local setup is transient if the Jenkins container is recreated. Docker Hub publication and the clean target-host applies are not claimed because this session has no Docker Hub credentials and no supplied target host.
+The Task 11 container was also verified in a real browser at `http://localhost:8081/alumni-mentorship/`; its dashboard screenshot is committed. Jenkins now has a Docker client and can talk to the mounted Docker socket, but this container-local setup is transient if the Jenkins container is recreated. Docker Hub registry tags `1-bd157e6` and `v1.0.0` were used for the completed VirtualBox target run. The Task 14 evidence records first provisioning, a converged second apply, rollback, and the application health response.
 
 Task 3 also has a native Windows verification: Java 17 and Maven 3.10 completed `mvn verify` and packaged the WAR. The first `clean` encountered a Windows lock on `app/target`; rerunning the non-destructive `verify` lifecycle completed successfully.
 
