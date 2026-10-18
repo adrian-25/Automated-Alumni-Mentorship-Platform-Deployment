@@ -51,7 +51,7 @@ Create a student-to-alumni request, then progress it through the role-aware work
 
 ![Mentorship request queue with completed, accepted, and rejected example requests](docs/images/requests-local.png)
 
-> The deployed demonstration uses the project’s in-memory H2 database. Data is available while the service is running but resets when the service restarts or redeploys.
+> The deployed demonstration uses the project’s in-memory H2 database. It automatically seeds the sample records shown above whenever the service starts with an empty database. Data added by visitors is available while the service is running but resets when the service restarts or redeploys.
 
 ## Delivery workflow
 
