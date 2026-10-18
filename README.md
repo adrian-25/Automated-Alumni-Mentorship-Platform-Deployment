@@ -19,6 +19,12 @@ A final-year CSE DevOps project that delivers a Spring Boot alumni mentorship ap
 
 The platform manages student and alumni records, mentor discovery, mentorship requests, role-aware workflow transitions, and dashboard reporting. Its DevOps implementation makes every release traceable through source control, quality gates, container packaging, infrastructure automation, health validation, and rollback.
 
+## Live demo
+
+Open the public application at [adrian-alumni-mentorship.onrender.com/alumni-mentorship](https://adrian-alumni-mentorship.onrender.com/alumni-mentorship/).
+
+> The Render free instance spins down after inactivity, so the first visit after idle time can take about a minute to respond.
+
 ## Application walkthrough
 
 The application starts on its dashboard, which acts as the landing page and summarizes the current mentoring network. Alumni are former students who can act as mentors; current students can be matched with them through a request. The screenshots below use fictional local demo data.

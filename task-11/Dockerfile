@@ -11,4 +11,6 @@ LABEL org.opencontainers.image.description="Course MVP deployment image"
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=build /workspace/app/target/alumni-mentorship.war /usr/local/tomcat/webapps/alumni-mentorship.war
 EXPOSE 8080
-HEALTHCHECK --interval=30s --timeout=5s --start-period=45s --retries=3 CMD wget -qO- http://localhost:8080/alumni-mentorship/api/health || exit 1
+# Render injects PORT=10000 for Docker web services; local Docker runs keep Tomcat on 8080.
+CMD ["sh", "-c", "sed -i \"s/port=\\\"8080\\\"/port=\\\"${PORT:-8080}\\\"/\" /usr/local/tomcat/conf/server.xml && catalina.sh run"]
+HEALTHCHECK --interval=30s --timeout=5s --start-period=45s --retries=3 CMD wget -qO- http://localhost:${PORT:-8080}/alumni-mentorship/api/health || exit 1
