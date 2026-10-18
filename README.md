@@ -27,7 +27,7 @@ Open the public application at [adrian-alumni-mentorship.onrender.com/alumni-men
 
 ## Application walkthrough
 
-The application starts on its dashboard, which acts as the landing page and summarizes the current mentoring network. Alumni are former students who can act as mentors; current students can be matched with them through a request. The screenshots below use fictional local demo data.
+The application starts on its dashboard, which acts as the landing page and summarizes the current mentoring network. Alumni are former students who can act as mentors; current students can be matched with them through a request. A fresh demo starts with eight fictional alumni, eight students, and eight mentorship requests.
 
 ### Dashboard / landing page
 
@@ -47,9 +47,13 @@ Maintain student profiles and search by name or course before creating a mentors
 
 ### Mentorship requests
 
-Create a student-to-alumni request, then progress it through the role-aware workflow: an alumnus can accept or reject a new request, and an admin can complete an accepted request.
+Create a student-to-alumni request, edit its student, mentor, or message later, then progress it through the role-aware workflow. The UI exposes only valid actions: an alumnus can accept or reject a new request, and an admin can complete an accepted request.
 
 ![Mentorship request queue with completed, accepted, and rejected example requests](docs/images/requests-local.png)
+
+### About and task reports
+
+The in-app **About** page introduces the GitOps project, links directly to every Task 1–15 delivery report, and provides the complete GitHub repository link.
 
 > The deployed demonstration uses the project’s in-memory H2 database. It automatically seeds the sample records shown above whenever the service starts with an empty database. Data added by visitors is available while the service is running but resets when the service restarts or redeploys.
 

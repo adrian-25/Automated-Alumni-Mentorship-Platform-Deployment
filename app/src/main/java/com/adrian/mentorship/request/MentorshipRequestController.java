@@ -12,6 +12,16 @@ public class MentorshipRequestController {
     @GetMapping("/requests") String list(Model model) { model.addAttribute("requests", requests.findAll()); return "requests/list"; }
     @GetMapping("/requests/new") String newForm(Model model) { model.addAttribute("students", students.findAll()); model.addAttribute("alumni", alumni.findAll()); return "requests/form"; }
     @PostMapping("/requests") String create(@RequestParam Long studentId, @RequestParam Long alumniId, @RequestParam String message) { service.create(studentId, alumniId, message); return "redirect:/requests"; }
+    @GetMapping("/requests/{id}/edit") String editForm(@PathVariable Long id, Model model) {
+        model.addAttribute("request", requests.findById(id).orElseThrow());
+        model.addAttribute("students", students.findAll());
+        model.addAttribute("alumni", alumni.findAll());
+        return "requests/edit";
+    }
+    @PostMapping("/requests/{id}") String update(@PathVariable Long id, @RequestParam Long studentId, @RequestParam Long alumniId, @RequestParam String message) {
+        service.update(id, studentId, alumniId, message);
+        return "redirect:/requests";
+    }
     @PostMapping("/requests/{id}/status") String status(@PathVariable Long id, @RequestParam RequestStatus status, @RequestParam UserRole role, Model model) {
         try { service.changeStatus(id, status, role); } catch (IllegalArgumentException exception) { model.addAttribute("error", exception.getMessage()); model.addAttribute("requests", requests.findAll()); return "requests/list"; }
         return "redirect:/requests";

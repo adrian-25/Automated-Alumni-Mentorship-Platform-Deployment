@@ -11,6 +11,14 @@ public class MentorshipRequestService {
     public MentorshipRequest create(Long studentId, Long alumniId, String message) {
         var request = new MentorshipRequest(); request.setStudent(students.findById(studentId).orElseThrow()); request.setAlumni(alumni.findById(alumniId).orElseThrow()); request.setMessage(message); return requests.save(request);
     }
+    public MentorshipRequest update(Long id, Long studentId, Long alumniId, String message) {
+        var request = requests.findById(id).orElseThrow();
+        request.setStudent(students.findById(studentId).orElseThrow());
+        request.setAlumni(alumni.findById(alumniId).orElseThrow());
+        request.setMessage(message);
+        request.touch();
+        return requests.save(request);
+    }
     public MentorshipRequest changeStatus(Long id, RequestStatus target, UserRole role) {
         var request = requests.findById(id).orElseThrow();
         if (!isAllowed(request.getStatus(), target, role)) throw new IllegalArgumentException("The selected role cannot make that status transition.");
