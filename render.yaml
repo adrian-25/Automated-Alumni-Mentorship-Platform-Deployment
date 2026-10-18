@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: adrian-alumni-mentorship
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: task-11/Dockerfile
+    dockerContext: .
+    healthCheckPath: /alumni-mentorship/api/health
+    envVars:
+      - key: PORT
+        value: "8080"

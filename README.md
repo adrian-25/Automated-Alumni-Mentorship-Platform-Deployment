@@ -19,6 +19,34 @@ A final-year CSE DevOps project that delivers a Spring Boot alumni mentorship ap
 
 The platform manages student and alumni records, mentor discovery, mentorship requests, role-aware workflow transitions, and dashboard reporting. Its DevOps implementation makes every release traceable through source control, quality gates, container packaging, infrastructure automation, health validation, and rollback.
 
+## Application walkthrough
+
+The application starts on its dashboard, which acts as the landing page and summarizes the current mentoring network. Alumni are former students who can act as mentors; current students can be matched with them through a request. The screenshots below use fictional local demo data.
+
+### Dashboard / landing page
+
+![Matte-black mentorship dashboard with network totals and request pipeline](docs/images/dashboard-local.png)
+
+### Alumni directory
+
+Search alumni by name or expertise, add mentor profiles, and update their professional information.
+
+![Alumni directory with example mentor records](docs/images/alumni-directory-local.png)
+
+### Students
+
+Maintain student profiles and search by name or course before creating a mentorship request.
+
+![Student directory with example student records](docs/images/students-local.png)
+
+### Mentorship requests
+
+Create a student-to-alumni request, then progress it through the role-aware workflow: an alumnus can accept or reject a new request, and an admin can complete an accepted request.
+
+![Mentorship request queue with completed, accepted, and rejected example requests](docs/images/requests-local.png)
+
+> The deployed demonstration uses the project’s in-memory H2 database. Data is available while the service is running but resets when the service restarts or redeploys.
+
 ## Delivery workflow
 
 ```text
