@@ -1,5 +1,9 @@
 # Manual deployment proof
 
+## Task delivery report
+
+**Delivered.** Pipeline-as-code provides checkout, Maven build/test, WAR archive, and parameterized Tomcat deployment. The task README records the successful Jenkins build #9 and HTTP 200 deployment verification; the capture guidance below preserves the reproduction path.
+
 Set the Jenkins agent's `TOMCAT_WEBAPPS` environment variable to the real Tomcat `webapps` directory. Run the pipeline with `DEPLOY_MODE=tomcat`, then capture:
 
 1. A successful pipeline stage view and Console Output in `pipeline-success.png` / `pipeline-success.log`.

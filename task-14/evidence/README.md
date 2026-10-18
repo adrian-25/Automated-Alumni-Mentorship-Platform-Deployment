@@ -1,5 +1,9 @@
 # Reliability evidence
 
+## Task delivery report
+
+**Delivered.** Provisioning, a second idempotent apply, rollback to the prior stable image, and independent health validation all completed on the Ubuntu target. The concrete logs and recaps are listed below.
+
 Live VirtualBox Ubuntu-target evidence is captured here:
 
 - [`first-apply.log`](first-apply.log) — 12 October 2026 provisioning apply using `adrian255/alumni-mentorship:1-bd157e6`; health reported `UP` and the recap was `ok=10 changed=2 unreachable=0 failed=0`.

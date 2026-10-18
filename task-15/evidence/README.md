@@ -1,5 +1,9 @@
 # Final manual demonstration evidence
 
+## Task delivery report
+
+**Delivered documentation package.** The final report, troubleshooting material, limitations/future plan, presentation, viva material, and release summary are included in Task 15. The remaining items below are explicitly marked as final-presentation captures because they require an evaluator-facing live demo or externally managed Jenkins/registry infrastructure.
+
 Capture during the final live demo:
 
 1. `end-to-end-jenkins.png` / `end-to-end-jenkins.log` — commit to successful Jenkins build/test/package/deploy.

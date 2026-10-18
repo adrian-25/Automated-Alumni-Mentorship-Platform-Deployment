@@ -19,19 +19,19 @@
 |---|---|---|---|
 | 1 | Scope | 1 | done |
 | 2 | Plan and workflow | 1 | done |
-| 3 | Requirements and architecture | 1 | next |
-| 4 | Repository baseline | 1 | next |
-| 5 | First feature collaboration | 2 | planned |
-| 6 | MVP completion and release baseline | 2 | planned |
-| 7 | Jenkins CI job | 3 | planned |
-| 8 | Pipeline and server deployment | 3 | planned |
-| 9 | Selenium local tests | 4 | planned |
-| 10 | Jenkins continuous testing | 4 | planned |
-| 11 | Docker lifecycle | 5 | planned |
-| 12 | Jenkins Docker CD | 5 | planned |
-| 13 | Ansible configuration | 6 | planned |
-| 14 | Provisioning reliability | 6 | planned |
-| 15 | Release, report, and viva | 7 | planned |
+| 3 | Requirements and architecture | 1 | done |
+| 4 | Repository baseline | 1 | done |
+| 5 | First feature collaboration | 2 | done |
+| 6 | MVP completion and release baseline | 2 | done |
+| 7 | Jenkins CI job | 3 | done |
+| 8 | Pipeline and server deployment | 3 | done |
+| 9 | Selenium local tests | 4 | done |
+| 10 | Jenkins continuous testing | 4 | done |
+| 11 | Docker lifecycle | 5 | done |
+| 12 | Jenkins Docker CD | 5 | done with credential prerequisite |
+| 13 | Ansible configuration | 6 | done |
+| 14 | Provisioning reliability | 6 | done |
+| 15 | Release, report, and viva | 7 | documentation done; final presentation capture pending |
 
 ## Definition of Done
 
