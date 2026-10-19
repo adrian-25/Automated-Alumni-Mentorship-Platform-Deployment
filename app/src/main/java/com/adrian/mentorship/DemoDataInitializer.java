@@ -32,6 +32,9 @@ class DemoDataInitializer {
             Alumni sneha = alumniRepository.save(alumni("Sneha Reddy", "sneha.reddy@example.test", "InsightWorks AI", "Machine Learning", 2019));
             Alumni vikram = alumniRepository.save(alumni("Vikram Singh", "vikram.singh@example.test", "Civic Tech Collective", "Software Architecture", 2015));
             Alumni neha = alumniRepository.save(alumni("Neha Kulkarni", "neha.kulkarni@example.test", "Studio Meridian", "UX Research", 2018));
+            Alumni aman = alumniRepository.save(alumni("Aman Patel", "aman.patel@example.test", "Pioneer Software", "Backend Engineering", 2017));
+            Alumni isha = alumniRepository.save(alumni("Isha Sharma", "isha.sharma@example.test", "Greenfield Systems", "Cloud Architecture", 2018));
+            Alumni rohan = alumniRepository.save(alumni("Rohan Desai", "rohan.desai@example.test", "Atlas Consulting", "Business Analysis", 2016));
 
             Student riya = studentRepository.save(student("Riya Kapoor", "riya.kapoor@example.test", "Computer Science and Engineering", 2027));
             Student dev = studentRepository.save(student("Dev Malhotra", "dev.malhotra@example.test", "Information Technology", 2026));
@@ -41,6 +44,9 @@ class DemoDataInitializer {
             Student kavya = studentRepository.save(student("Kavya Menon", "kavya.menon@example.test", "Artificial Intelligence and Machine Learning", 2027));
             Student ishaan = studentRepository.save(student("Ishaan Gupta", "ishaan.gupta@example.test", "Information Technology", 2026));
             Student ananya = studentRepository.save(student("Ananya Das", "ananya.das@example.test", "Cyber Security", 2027));
+            Student tanvi = studentRepository.save(student("Tanvi Bhat", "tanvi.bhat@example.test", "Computer Science and Engineering", 2027));
+            Student manav = studentRepository.save(student("Manav Sethi", "manav.sethi@example.test", "Information Technology", 2026));
+            Student zoya = studentRepository.save(student("Zoya Ahmed", "zoya.ahmed@example.test", "Data Science", 2027));
 
             requestRepository.save(request(riya, aarav, "I need guidance on Docker, Kubernetes, and building a DevOps deployment pipeline.", RequestStatus.COMPLETED));
             requestRepository.save(request(dev, meera, "I would like mentorship on data engineering, portfolio projects, and preparing for internships.", RequestStatus.ACCEPTED));
@@ -50,6 +56,9 @@ class DemoDataInitializer {
             requestRepository.save(request(kavya, sneha, "I am looking for feedback on my machine-learning learning plan and project portfolio.", RequestStatus.REQUESTED));
             requestRepository.save(request(ishaan, vikram, "I would like advice on clean architecture and growing into a software architect role.", RequestStatus.REJECTED));
             requestRepository.save(request(ananya, neha, "I need guidance on conducting user research for a cyber-security product concept.", RequestStatus.COMPLETED));
+            requestRepository.save(request(tanvi, aman, "Demo request — edit this message and choose the outcome during your presentation.", RequestStatus.REQUESTED));
+            requestRepository.save(request(manav, isha, "Demo request — ready for you to update as Alumni or Admin.", RequestStatus.REQUESTED));
+            requestRepository.save(request(zoya, rohan, "Demo request — keep this open and use it for the workflow demonstration.", RequestStatus.REQUESTED));
         };
     }
 

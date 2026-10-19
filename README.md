@@ -27,7 +27,7 @@ Open the public application at [adrian-alumni-mentorship.onrender.com/alumni-men
 
 ## Application walkthrough
 
-The application starts on its dashboard, which acts as the landing page and summarizes the current mentoring network. Alumni are former students who can act as mentors; current students can be matched with them through a request. A fresh demo starts with eight fictional alumni, eight students, and eight mentorship requests.
+The application starts on its dashboard, which acts as the landing page and summarizes the current mentoring network. Alumni are former students who can act as mentors; current students can be matched with them through a request. A fresh demo starts with eleven fictional alumni, eleven students, and eleven mentorship requests. Three requests are intentionally left open for a live workflow demonstration.
 
 ### Dashboard / landing page
 
