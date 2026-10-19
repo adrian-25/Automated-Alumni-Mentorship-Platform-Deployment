@@ -21,7 +21,7 @@ The platform manages student and alumni records, mentor discovery, mentorship re
 
 ## Live demo
 
-Open the public application at [adrian-alumni-mentorship.onrender.com/alumni-mentorship](https://adrian-alumni-mentorship.onrender.com/alumni-mentorship/).
+Open the public application at [adrian-alumni-mentorship-live.onrender.com](https://adrian-alumni-mentorship-live.onrender.com/). The root URL automatically opens the dashboard.
 
 > The Render free instance spins down after inactivity, so the first visit after idle time can take about a minute to respond.
 

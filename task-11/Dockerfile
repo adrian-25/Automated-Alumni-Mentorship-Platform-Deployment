@@ -10,6 +10,10 @@ LABEL org.opencontainers.image.title="Automated Alumni Mentorship Platform"
 LABEL org.opencontainers.image.description="Course MVP deployment image"
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=build /workspace/app/target/alumni-mentorship.war /usr/local/tomcat/webapps/alumni-mentorship.war
+# The application is intentionally served at /alumni-mentorship.  Supply a
+# small root application so visitors using only the Render domain arrive at
+# the dashboard instead of Tomcat's 404 page.
+COPY task-11/root-redirect/index.html /usr/local/tomcat/webapps/ROOT/index.html
 EXPOSE 8080
 # Render injects PORT=10000 for Docker web services; local Docker runs keep Tomcat on 8080.
 CMD ["sh", "-c", "sed -i \"s/port=\\\"8080\\\"/port=\\\"${PORT:-8080}\\\"/\" /usr/local/tomcat/conf/server.xml && catalina.sh run"]
